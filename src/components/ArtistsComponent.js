@@ -6,6 +6,7 @@ function Artist() {
   const artist = artists.map((artist) => {
     return (
       <div className="col-12 col-md-4" id={artist.id}>
+        <br />
         <Card>
           <a href={artist.url}>
             <CardImg
