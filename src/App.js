@@ -19,23 +19,35 @@ function App() {
   const toggleNav = () => setCollapsed(!collapsed);
   return (
     <>
-      <Navbar className="bg-primary" dark expand="md">
+      <Navbar className="navbar" dark expand="md">
         <div className="container">
           <NavbarBrand href="/home" className="mr-auto">
             <img src="/favicon.jpg" height="40px" width="40px" alt="logo"></img>
-            SK's Music App
+            <span className="navbar-brand">SK's Music App</span>
           </NavbarBrand>
           <NavbarToggler onClick={toggleNav} className="mr-2" />
           <Collapse isOpen={!collapsed} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="/home">Home</NavLink>
+                <NavLink href="/home" className="navlink">
+                  <span className="fa fa-home nav-text">
+                    <span className="fontstyle"> Home</span>
+                  </span>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/playlist">Playlist</NavLink>
+                <NavLink href="/playlist">
+                  <span className="fa fa-music nav-text">
+                    <span className="fontstyle"> Playlist</span>
+                  </span>
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/artists">Artists</NavLink>
+                <NavLink href="/artists">
+                  <span className="fa fa-info nav-text">
+                    <span className="fontstyle"> Artists</span>
+                  </span>
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -50,6 +62,25 @@ function App() {
           <Redirect to="/home" />
         </Switch>
       </BrowserRouter>
+      <footer className="footer text-center foot">
+        <a
+          style={{ textDecoration: "none" }}
+          href="https://www.linkedin.com/in/sai-kiran-shrinath-2048a0187/"
+          className="foot"
+        >
+          <strong style={{ textDecoration: "none" }}>Developed by SK</strong>
+          <img
+            src="/images/sk.jpeg"
+            width="40px"
+            height="40px"
+            alt="sk"
+            style={{
+              border: "2px solid rgb(207, 207, 0)",
+              borderRadius: "50%",
+            }}
+          />
+        </a>
+      </footer>
     </>
   );
 }
