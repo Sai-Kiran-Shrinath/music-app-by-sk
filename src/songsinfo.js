@@ -142,7 +142,7 @@ export const Songs = [
     name: "Closer",
     image: "/images/closer.jpg",
     song: "/music_library/closer.mp3",
-    artist: "The Chainsmokers",
+    artist: "The Chainsmokers & Halsey",
     released: "2016",
     genre: "Future bass, Pop",
     lyricist:

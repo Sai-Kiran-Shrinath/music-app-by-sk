@@ -1,35 +1,38 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Songs } from "../songsinfo";
 import { Card, CardImg, CardTitle } from "reactstrap";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 
 function Playlist() {
-  const song = Songs.map((song) => {
+  const cur = (i) => {
     return (
-      <div className="col-12 col-md-4" key={song.id}>
-        <Card>
-          <CardImg
-            style={{ height: "250px" }}
-            src={song.image}
-            alt={song.name}
-          />
-          <CardTitle>
-            <h5>{song.name}</h5>
-          </CardTitle>
-          <h6>{song.artist}</h6>
-          <AudioPlayer src={song.song}></AudioPlayer>
-        </Card>
-      </div>
+      <img
+        src={Songs[i].image}
+        alt={Songs[i].name}
+        width="50px"
+        height="50px"
+      />
     );
-  });
+  };
   return (
-    <div className="bgstyle">
+    <>
       <div className="container">
-        <h1>Playlist</h1>
-        <div className="row">{song}</div>
+        <div className="audio-player">
+          <div className="container row">
+            <span className="col-3">{cur(0)}</span>
+            <div className="col-9">
+              <AudioPlayer
+                className="audio-tag"
+                autoPlay
+                src={Songs[0].song}
+                onPlay={(e) => console.log("onPlay")}
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

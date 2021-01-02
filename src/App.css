@@ -56,16 +56,11 @@ body {
   background: rgb(181, 255, 243);
 }
 
-.song-info {
-  border: 3px solid black;
-}
-
 .audio-player {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: red;
   color: white;
-  text-align: center;
+  background-color: rgb(5, 2, 32);
 }
