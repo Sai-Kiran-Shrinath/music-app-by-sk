@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
         <Navbar className="navbar" dark expand="md">
           <div className="container">
-            <NavbarBrand href="/home" className="mr-auto">
+            <NavbarBrand href="/" className="mr-auto">
               <img
                 src="/favicon.jpg"
                 height="40px"
@@ -35,7 +35,7 @@ function App() {
             <Collapse isOpen={!collapsed} navbar>
               <Nav navbar>
                 <NavItem>
-                  <NavLink to="/home" className="navlink">
+                  <NavLink to="/" className="navlink">
                     <span className="fa fa-home nav-text">
                       <span className="fontstyle"> Home</span>
                     </span>
@@ -61,10 +61,10 @@ function App() {
         </Navbar>
 
         <Switch>
-          <Route path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route path="/playlist" component={Playlist} />
           <Route path="/artists" component={Artist} />
-          <Redirect to="/home" />
+          <Redirect to="" />
         </Switch>
       </BrowserRouter>
     </>

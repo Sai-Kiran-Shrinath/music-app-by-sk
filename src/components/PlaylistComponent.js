@@ -96,7 +96,7 @@ function Playlist() {
           <strong>Current Song</strong>
         </h4>
         <Card className="card-d">
-          <CardImg src={Songs[i].image} width="100%" />
+          <CardImg src={Songs[i].image} width="100%" height="300px" />
           <h5
             style={{
               fontWeight: "bold",
