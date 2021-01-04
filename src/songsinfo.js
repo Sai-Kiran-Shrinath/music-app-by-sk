@@ -1,6 +1,19 @@
 export const Songs = [
   {
     id: 0,
+    name: "Perfect",
+    image: "/images/perfect.jpg",
+    song: "/music_library/perfect.mp3",
+    artist: "Ed Sheeran",
+    released: "2017",
+    genre: "Folk pop",
+    lyricist: "	Ed Sheeran",
+    prev: 11,
+    next: 1,
+    length: "4:23",
+  },
+  {
+    id: 1,
     name: "Galway Girl",
     image: "/images/galwaygirl.jpg",
     song: "/music_library/galwaygirl.mp3",
@@ -9,18 +22,7 @@ export const Songs = [
     genre: "Pop, Irish folk, Hip hop",
     lyricist:
       "Ed Sheeran, Amy Wadge, Damian McKee, Eamon Murray, Johnny McDaid, Liam Bradley",
-    prev: 11,
-    next: 1,
-  },
-  {
-    id: 1,
-    name: "Perfect",
-    image: "/images/perfect.jpg",
-    song: "/music_library/perfect.mp3",
-    artist: "Ed Sheeran",
-    released: "2017",
-    genre: "Folk pop",
-    lyricist: "	Ed Sheeran",
+    length: "2:52",
     prev: 0,
     next: 2,
   },
@@ -36,6 +38,7 @@ export const Songs = [
       "Ed Sheeran, Justin Bieber, Max Martin, Shellback, Fred Gibson, Jason Boyd",
     prev: 1,
     next: 3,
+    length: "3:37",
   },
   {
     id: 3,
@@ -49,6 +52,7 @@ export const Songs = [
       "Selena Gomez, Jacob Kasher, Ammar Malik, Ross Golan, Phil Shaouy, Lisa Scinta",
     prev: 2,
     next: 4,
+    length: "3:45",
   },
   {
     id: 4,
@@ -61,6 +65,7 @@ export const Songs = [
     lyricist: "Charlie Puth, Jacob Kasher Hindlin, Selena Gomez",
     prev: 3,
     next: 5,
+    length: "3:50",
   },
   {
     id: 5,
@@ -74,6 +79,7 @@ export const Songs = [
       "William Grigahcine, Justin Bieber, Andrew Watt, Ali Tamposi, Brian Lee, Louis Bell",
     prev: 4,
     next: 6,
+    length: "3:26",
   },
   {
     id: 6,
@@ -86,6 +92,7 @@ export const Songs = [
     lyricist: "Luis Rodriguez, Erika Ender, Ramon Ayala",
     prev: 5,
     next: 7,
+    length: "4:41",
   },
   {
     id: 7,
@@ -99,6 +106,7 @@ export const Songs = [
       "Benjamin Levin, Julia Cavazos, Steve McCutcheon, Ed Sheeran, Anne-Marie",
     prev: 6,
     next: 8,
+    length: "3:31",
   },
   {
     id: 8,
@@ -111,6 +119,7 @@ export const Songs = [
     lyricist: "David Stewart, Jessica Agombar",
     prev: 7,
     next: 9,
+    length: "3:43",
   },
   {
     id: 9,
@@ -124,6 +133,7 @@ export const Songs = [
       "Max Martin, Savan Kotecha, Ilya Salmanzadeh, Ali Payami, Tove Nilsson",
     prev: 8,
     next: 10,
+    length: "4:09",
   },
   {
     id: 10,
@@ -136,6 +146,7 @@ export const Songs = [
     lyricist: "Doc McKinney, Henry Walter, Jason Quenneville",
     prev: 9,
     next: 11,
+    length: "4:33",
   },
   {
     id: 11,
@@ -149,5 +160,6 @@ export const Songs = [
       "Andrew Taggart, Ashley Frangipane, Shaun Frank, Frederic Kennett, Isaac King",
     prev: 10,
     next: 0,
+    length: "4:21",
   },
 ];

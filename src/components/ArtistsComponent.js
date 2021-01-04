@@ -45,15 +45,17 @@ function Artist() {
           href="https://www.linkedin.com/in/sai-kiran-shrinath-2048a0187/"
           className="foot"
         >
-          <strong style={{ textDecoration: "none" }}>Developed by SK</strong>
+          <strong style={{ textDecoration: "none" }}>
+            Designed & Developed by SK{" "}
+          </strong>
           <img
             src="/images/sk.jpeg"
-            width="40px"
-            height="40px"
+            width="100px"
+            height="100px"
             alt="sk"
             style={{
-              border: "2px solid rgb(207, 207, 0)",
-              borderRadius: "50%",
+              border: "2px solid  rgb(255, 217, 0)",
+              borderRadius: "100%",
             }}
           />
         </a>

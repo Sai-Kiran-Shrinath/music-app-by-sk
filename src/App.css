@@ -43,6 +43,12 @@ body {
   margin-left: 0px;
 }
 
+.card-fix {
+  background-color: #070047;
+  font-weight: bold;
+  margin-left: 0px;
+  position: fixed;
+}
 .card-image {
   height: 250px;
 }
@@ -63,4 +69,21 @@ body {
   width: 100%;
   color: white;
   background-color: rgb(5, 2, 32);
+}
+
+.playlist {
+  margin: 0px, 0px, 0px, 0px;
+  padding: 0px, 0px, 0px, 0px;
+  border: 2px solid #070047;
+  background-color: #615d8b;
+}
+
+.play-image {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.dbutton {
+  padding-top: 30px;
+  padding-right: 15px;
 }
