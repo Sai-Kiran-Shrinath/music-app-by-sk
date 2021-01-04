@@ -76,7 +76,7 @@ function Playlist() {
     if (!pause) {
       return (
         <div
-          className="col-1"
+          className="col-2"
           style={{ paddingTop: "17px", paddingLeft: "20px" }}
         >
           {" "}
@@ -302,8 +302,8 @@ function Playlist() {
             <img
               src={Songs[index].image}
               alt={Songs[index].name}
-              className="col-1"
-              height="60px"
+              className="col-3"
+              height="100px"
               style={{
                 border: "2px solid rgb(207, 207, 0)",
                 paddingLeft: "0px",
@@ -311,7 +311,7 @@ function Playlist() {
               }}
             />
             <h6
-              className="col-6"
+              className="col-4"
               style={{ color: "rgb(207, 207, 0)", paddingTop: "20px" }}
             >
               <strong>{Songs[index].name}</strong>
