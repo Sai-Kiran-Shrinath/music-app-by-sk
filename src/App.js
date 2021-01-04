@@ -19,7 +19,12 @@ function App() {
   const [collapsed, setCollapsed] = useState(true);
   // eslint-disable-next-line
   const [myaudio, changeaudio] = useState(new Audio(Songs[0].song));
+  // eslint-disable-next-line
+  const [index, setIndex] = useState(0);
+  // eslint-disable-next-line
+  const [pause, toggle] = useState(true);
   const toggleNav = () => setCollapsed(!collapsed);
+  myaudio.play();
   return (
     <>
       <BrowserRouter>
@@ -64,14 +69,42 @@ function App() {
         </Navbar>
 
         <Switch>
-          <Route exact path="/" component={() => <Home myaudio={myaudio} />} />
+          <Route
+            exact
+            path="/"
+            component={() => (
+              <Home
+                myaudio={myaudio}
+                index={index}
+                setIndex={setIndex}
+                pause={pause}
+                toggle={toggle}
+              />
+            )}
+          />
           <Route
             path="/playlist"
-            component={() => <Playlist myaudio={myaudio} />}
+            component={() => (
+              <Playlist
+                myaudio={myaudio}
+                index={index}
+                setIndex={setIndex}
+                pause={pause}
+                toggle={toggle}
+              />
+            )}
           />
           <Route
             path="/artists"
-            component={() => <Artist myaudio={myaudio} />}
+            component={() => (
+              <Artist
+                myaudio={myaudio}
+                index={index}
+                setIndex={setIndex}
+                pause={pause}
+                toggle={toggle}
+              />
+            )}
           />
           <Redirect to="" />
         </Switch>

@@ -3,7 +3,6 @@ import { Card, CardImg, CardTitle } from "reactstrap";
 import { artists } from "../artists";
 
 function Artist({ myaudio }) {
-  myaudio.pause();
   const artist = artists.map((artist) => {
     return (
       <div className="col-12 col-md-4" key={artist.id}>

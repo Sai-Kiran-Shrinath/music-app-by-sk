@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardImg, Spinner } from "reactstrap";
 import { Songs } from "../songsinfo";
-function Playlist({ myaudio }) {
-  const [index, setIndex] = useState(0);
-  const [pause, toggle] = useState(true);
+function Playlist({ myaudio, index, setIndex, pause, toggle }) {
   const [playtime, setPlaytime] = useState(0);
   const [repeat, setrepeat] = useState(false);
 
   myaudio.preload = "auto";
+  if (!toggle) {
+    myaudio.play();
+  }
 
   const Repeatrnot = () => {
     if (!repeat) {
