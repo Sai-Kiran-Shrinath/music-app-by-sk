@@ -6,13 +6,69 @@ function Playlist() {
   const [pause, toggle] = useState(true);
   const [playtime, setPlaytime] = useState(0);
   const [myaudio, changeaudio] = useState(new Audio(Songs[index].song));
-  myaudio.ontimeupdate = () => setPlaytime(myaudio.currentTime);
+  const [repeat, setrepeat] = useState(false);
+
+  const Repeatrnot = () => {
+    if (!repeat) {
+      return (
+        <span
+          className={"col-3 fa fa-lg fa-exchange"}
+          style={{
+            cursor: "pointer",
+            paddingTop: "25px",
+            color: "rgb(207, 207, 0)",
+          }}
+          onClick={() => {
+            setrepeat(true);
+          }}
+        ></span>
+      );
+    } else {
+      return (
+        <span
+          className={"col-3 fa fa-lg fa-exchange"}
+          style={{
+            cursor: "pointer",
+            paddingTop: "25px",
+            color: "#8f0000",
+          }}
+          onClick={() => {
+            setrepeat(false);
+          }}
+        ></span>
+      );
+    }
+  };
 
   useEffect(() => {
-    toggle(true);
-    myaudio.load();
     changeaudio(new Audio(Songs[index].song));
+    myaudio.load();
+    toggle(true);
   }, [index]);
+
+  myaudio.ontimeupdate = () => {
+    setPlaytime(myaudio.currentTime);
+
+    if (repeat) {
+      if (myaudio.currentTime === myaudio.duration) {
+        myaudio.currentTime = 0;
+      }
+    } else {
+      if (myaudio.currentTime === myaudio.duration) {
+        setIndex(Songs[index].next);
+        toggle(true);
+      }
+    }
+  };
+
+  const Timedata = () => {
+    var p = Math.floor(playtime);
+    var m = Math.floor(p / 60);
+    var s = (p % 60).toString().substring(0, 2);
+    if (m < 10) m = "0" + m;
+    if (s < 10) s = "0" + s;
+    return m + ":" + s;
+  };
 
   const Spin = () => {
     if (!pause) {
@@ -35,7 +91,7 @@ function Playlist() {
       <div className="col-12 col-md-4 text-center">
         <br />
         <h4>
-          <strong>Now Playing</strong>
+          <strong>Current Song</strong>
         </h4>
         <Card className="card-d">
           <CardImg src={Songs[i].image} width="100%" />
@@ -66,12 +122,20 @@ function Playlist() {
                 setPlaytime(e.target.value);
                 myaudio.currentTime = playtime;
               }}
-              style={{ width: "80%" }}
+              style={{ width: "60%" }}
             />
-          </div>
-          <div className="row justify-content-center">
             <span
-              className="fa fa-step-backward fa-lg col-1"
+              style={{
+                color: "rgb(207, 207, 0)",
+              }}
+            >
+              <Timedata />/{Songs[index].length}
+            </span>
+          </div>
+          <div className="row">
+            <Repeatrnot />
+            <span
+              className="fa fa-backward fa-lg col-2"
               style={{
                 cursor: "pointer",
                 paddingTop: "25px",
@@ -84,11 +148,12 @@ function Playlist() {
               }}
             ></span>
             <span
-              className={"col-1 fa fa-lg " + (pause ? "fa-play" : "fa-pause")}
+              className={"col-2 fa fa-lg " + (pause ? "fa-play" : "fa-pause")}
               style={{
                 cursor: "pointer",
                 paddingTop: "25px",
                 paddingBottom: "25px",
+                paddingRight: "10px",
                 color: "rgb(207, 207, 0)",
               }}
               onClick={() => {
@@ -97,7 +162,7 @@ function Playlist() {
               }}
             ></span>
             <span
-              className="col-1 fa fa-step-forward fa-lg"
+              className="col-2 fa fa-forward fa-lg"
               style={{
                 cursor: "pointer",
                 paddingTop: "25px",
@@ -107,9 +172,19 @@ function Playlist() {
               onClick={() => {
                 setIndex(Songs[Songs[index].next].id);
                 toggle(true);
-                myaudio.play();
               }}
             ></span>
+            <a href={Songs[index].song} download={Songs[index].name}>
+              <span
+                className="fa fa-download fa-lg dbutton col-2"
+                style={{
+                  cursor: "pointer",
+                  color: "rgb(207, 207, 0)",
+                  paddingTop: "25px",
+                  paddingBottom: "25px",
+                }}
+              ></span>
+            </a>
           </div>
         </Card>
         <br />
@@ -240,7 +315,7 @@ function Playlist() {
               <strong>{Songs[index].name}</strong>
             </h6>
             <span
-              className="fa fa-step-backward fa-lg col-1"
+              className="fa fa-backward fa-lg col-1"
               style={{
                 cursor: "pointer",
                 paddingTop: "25px",
@@ -264,7 +339,7 @@ function Playlist() {
               }}
             ></span>
             <span
-              className="col-1 fa fa-step-forward fa-lg"
+              className="col-1 fa fa-forward fa-lg"
               style={{
                 cursor: "pointer",
                 paddingTop: "25px",
@@ -273,7 +348,6 @@ function Playlist() {
               onClick={() => {
                 setIndex(Songs[Songs[index].next].id);
                 toggle(true);
-                myaudio.play();
               }}
             ></span>
             <Spin />

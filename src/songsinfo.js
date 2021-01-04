@@ -146,7 +146,7 @@ export const Songs = [
     lyricist: "Doc McKinney, Henry Walter, Jason Quenneville",
     prev: 9,
     next: 11,
-    length: "4:33",
+    length: "3:47",
   },
   {
     id: 11,
