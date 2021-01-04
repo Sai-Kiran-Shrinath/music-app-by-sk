@@ -43,7 +43,9 @@ function Playlist() {
   useEffect(() => {
     changeaudio(new Audio(Songs[index].song));
     myaudio.load();
+    myaudio.currentTime = 0;
     toggle(true);
+    // eslint-disable-next-line
   }, [index]);
 
   myaudio.ontimeupdate = () => {
