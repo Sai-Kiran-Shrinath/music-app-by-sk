@@ -4,7 +4,9 @@ import { Songs } from "../songsinfo";
 function Playlist() {
   const [index, setIndex] = useState(0);
   const [pause, toggle] = useState(true);
+  const [playtime, setPlaytime] = useState(0);
   const [myaudio, changeaudio] = useState(new Audio(Songs[index].song));
+  myaudio.ontimeupdate = () => setPlaytime(myaudio.currentTime);
 
   useEffect(() => {
     toggle(true);
@@ -53,6 +55,20 @@ function Playlist() {
           >
             By {Songs[i].artist} - {Songs[i].released}
           </p>
+          <div className="row justify-content-center">
+            <input
+              type="range"
+              min={0}
+              max={myaudio.duration}
+              step="any"
+              value={playtime}
+              onInput={(e) => {
+                setPlaytime(e.target.value);
+                myaudio.currentTime = playtime;
+              }}
+              style={{ width: "80%" }}
+            />
+          </div>
           <div className="row justify-content-center">
             <span
               className="fa fa-step-backward fa-lg col-1"
