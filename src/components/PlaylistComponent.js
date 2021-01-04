@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardImg, Spinner } from "reactstrap";
 import { Songs } from "../songsinfo";
-function Playlist() {
+function Playlist({ myaudio }) {
   const [index, setIndex] = useState(0);
   const [pause, toggle] = useState(true);
   const [playtime, setPlaytime] = useState(0);
-  const [myaudio, changeaudio] = useState(new Audio(Songs[index].song));
   const [repeat, setrepeat] = useState(false);
+
+  myaudio.preload = "auto";
 
   const Repeatrnot = () => {
     if (!repeat) {
@@ -41,7 +42,7 @@ function Playlist() {
   };
 
   useEffect(() => {
-    changeaudio(new Audio(Songs[index].song));
+    myaudio.src = Songs[index].song;
     myaudio.load();
     myaudio.currentTime = 0;
     toggle(true);

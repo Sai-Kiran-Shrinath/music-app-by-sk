@@ -2,7 +2,8 @@ import React from "react";
 import { Songs } from "../songsinfo";
 import { Link } from "react-router-dom";
 
-function Home() {
+function Home({ myaudio }) {
+  myaudio.pause();
   const songCard = Songs.map((song) => {
     return (
       <>
@@ -15,7 +16,11 @@ function Home() {
           </Link>
           <div className="col-12 col-md-8">
             <h5>
-              <Link to="/playlist" href="/playlist">
+              <Link
+                to="/playlist"
+                href="/playlist"
+                style={{ textDecoration: "none" }}
+              >
                 <strong style={{ color: "rgb(92, 1, 8)" }}>{song.name}</strong>
               </Link>
             </h5>

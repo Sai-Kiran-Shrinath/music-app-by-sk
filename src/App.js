@@ -4,6 +4,7 @@ import Artist from "./components/ArtistsComponent";
 import Playlist from "./components/PlaylistComponent";
 import { BrowserRouter } from "react-router-dom";
 import { Route, Redirect, Switch } from "react-router";
+import { Songs } from "./songsinfo";
 import {
   Collapse,
   Navbar,
@@ -16,6 +17,8 @@ import { NavLink } from "react-router-dom";
 
 function App() {
   const [collapsed, setCollapsed] = useState(true);
+  // eslint-disable-next-line
+  const [myaudio, changeaudio] = useState(new Audio(Songs[0].song));
   const toggleNav = () => setCollapsed(!collapsed);
   return (
     <>
@@ -61,9 +64,15 @@ function App() {
         </Navbar>
 
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/playlist" component={Playlist} />
-          <Route path="/artists" component={Artist} />
+          <Route exact path="/" component={() => <Home myaudio={myaudio} />} />
+          <Route
+            path="/playlist"
+            component={() => <Playlist myaudio={myaudio} />}
+          />
+          <Route
+            path="/artists"
+            component={() => <Artist myaudio={myaudio} />}
+          />
           <Redirect to="" />
         </Switch>
       </BrowserRouter>
