@@ -52,12 +52,11 @@ function Playlist({ myaudio, index, setIndex, pause, toggle }) {
 
     if (repeat) {
       if (myaudio.currentTime === myaudio.duration) {
-        myaudio.currentTime = 0;
+        myaudio.play();
       }
     } else {
       if (myaudio.currentTime === myaudio.duration) {
         setIndex(Songs[index].next);
-        toggle(true);
       }
     }
   };
@@ -72,7 +71,7 @@ function Playlist({ myaudio, index, setIndex, pause, toggle }) {
   };
 
   const Spin = () => {
-    if (!pause) {
+    if (!myaudio.paused) {
       return (
         <div
           className="col-2"
