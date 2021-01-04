@@ -6,9 +6,6 @@ function Playlist({ myaudio, index, setIndex, pause, toggle }) {
   const [repeat, setrepeat] = useState(false);
 
   myaudio.preload = "auto";
-  if (!toggle) {
-    myaudio.play();
-  }
 
   const Repeatrnot = () => {
     if (!repeat) {
@@ -152,7 +149,9 @@ function Playlist({ myaudio, index, setIndex, pause, toggle }) {
               }}
             ></span>
             <span
-              className={"col-2 fa fa-lg " + (pause ? "fa-play" : "fa-pause")}
+              className={
+                "col-2 fa fa-lg " + (myaudio.paused ? "fa-play" : "fa-pause")
+              }
               style={{
                 cursor: "pointer",
                 paddingTop: "25px",
@@ -161,10 +160,10 @@ function Playlist({ myaudio, index, setIndex, pause, toggle }) {
                 color: "rgb(207, 207, 0)",
               }}
               onClick={() => {
-                pause ? myaudio.play() : myaudio.pause();
-                toggle(!pause);
+                myaudio.paused ? myaudio.play() : myaudio.pause();
               }}
             ></span>
+
             <span
               className="col-2 fa fa-forward fa-lg"
               style={{
@@ -331,15 +330,16 @@ function Playlist({ myaudio, index, setIndex, pause, toggle }) {
               }}
             ></span>
             <span
-              className={"col-1 fa fa-lg " + (pause ? "fa-play" : "fa-pause")}
+              className={
+                "col-1 fa fa-lg " + (myaudio.paused ? "fa-play" : "fa-pause")
+              }
               style={{
                 cursor: "pointer",
                 paddingTop: "25px",
                 color: "rgb(207, 207, 0)",
               }}
               onClick={() => {
-                pause ? myaudio.play() : myaudio.pause();
-                toggle(!pause);
+                myaudio.paused ? myaudio.play() : myaudio.pause();
               }}
             ></span>
             <span

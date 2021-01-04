@@ -30,7 +30,7 @@ function App() {
       <BrowserRouter>
         <Navbar className="navbar" dark expand="md">
           <div className="container">
-            <NavbarBrand href="/" className="mr-auto">
+            <NavbarBrand className="mr-auto">
               <img
                 src="/favicon.jpg"
                 height="40px"

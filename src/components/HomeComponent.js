@@ -3,9 +3,6 @@ import { Songs } from "../songsinfo";
 import { Link } from "react-router-dom";
 
 function Home({ myaudio }) {
-  if (!myaudio.paused) {
-    myaudio.play();
-  }
   const songCard = Songs.map((song) => {
     return (
       <>
