@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Songs } from "../songsinfo";
 import { Link } from "react-router-dom";
 
-function SongInfo({ setIndex }) {
+function SongInfo({ pauseit, myaudio }) {
+  useEffect(() => {
+    if (myaudio.paused) {
+      pauseit(true);
+    } else {
+      pauseit(false);
+    }
+    // eslint-disable-next-line
+  }, [myaudio.paused]);
+
   const songCard = Songs.map((song) => {
     return (
       <>
         <div
+          key={song.id}
+          id={song.id}
           className="row text-center"
           style={{ borderBottom: "3px solid #070047", paddingBottom: "15px" }}
         >

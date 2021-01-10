@@ -34,6 +34,14 @@ function App() {
     // eslint-disable-next-line
   }, [index]);
 
+  useEffect(() => {
+    if (myaudio.paused) {
+      pauseit(true);
+    } else {
+      pauseit(false);
+    }
+  }, [myaudio.paused]);
+
   const Spin = () => {
     if (!pause) {
       return (
@@ -67,7 +75,7 @@ function App() {
             <Collapse isOpen={!collapsed} navbar>
               <Nav navbar>
                 {"  "}
-                <NavItem>
+                <NavItem style={{ marginBottom: "5px" }}>
                   <NavLink to="/" className="navlink">
                     <span className="fa fa-home nav-text">
                       <span className="fontstyle"> Home</span>
@@ -75,7 +83,7 @@ function App() {
                   </NavLink>
                 </NavItem>
                 {"  "}
-                <NavItem>
+                <NavItem style={{ marginBottom: "5px" }}>
                   <NavLink to="/playlist">
                     <span className="fa fa-info nav-text">
                       <span className="fontstyle"> Info</span>
@@ -112,13 +120,23 @@ function App() {
           <Route
             path="/playlist"
             component={() => (
-              <SongInfo myaudio={myaudio} index={index} setIndex={setIndex} />
+              <SongInfo
+                myaudio={myaudio}
+                index={index}
+                setIndex={setIndex}
+                pauseit={pauseit}
+              />
             )}
           />
           <Route
             path="/artists"
             component={() => (
-              <Artist myaudio={myaudio} index={index} setIndex={setIndex} />
+              <Artist
+                myaudio={myaudio}
+                index={index}
+                setIndex={setIndex}
+                pauseit={pauseit}
+              />
             )}
           />
           <Redirect to="/" />

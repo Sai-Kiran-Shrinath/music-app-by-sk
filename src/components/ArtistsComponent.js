@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, CardImg, CardTitle } from "reactstrap";
 import { artists } from "../artists";
 
-function Artist(props) {
+function Artist({ pauseit, myaudio }) {
+  useEffect(() => {
+    if (myaudio.paused) {
+      pauseit(true);
+    } else {
+      pauseit(false);
+    }
+    // eslint-disable-next-line
+  }, [myaudio.paused]);
   const artist = artists.map((artist) => {
     return (
       <div className="col-12 col-md-4" key={artist.id}>

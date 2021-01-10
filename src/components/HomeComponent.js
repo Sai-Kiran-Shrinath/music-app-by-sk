@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardImg } from "reactstrap";
 import { Songs } from "../songsinfo";
 function Home({ myaudio, index, setIndex, changeflag, pauseit }) {
   const [playtime, setPlaytime] = useState(0);
   const [repeat, setrepeat] = useState(false);
+
+  useEffect(() => {
+    if (myaudio.paused) {
+      pauseit(true);
+    } else {
+      pauseit(false);
+    }
+    // eslint-disable-next-line
+  }, [myaudio.paused]);
 
   const Repeatrnot = () => {
     if (!repeat) {
