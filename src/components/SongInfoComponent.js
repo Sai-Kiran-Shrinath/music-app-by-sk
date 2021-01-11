@@ -18,7 +18,11 @@ function SongInfo({ pauseit, myaudio }) {
         key={song.id}
         id={song.id}
         className="row text-center"
-        style={{ borderBottom: "3px solid #070047", paddingBottom: "15px" }}
+        style={{
+          borderBottom: "3px solid #070047",
+          paddingBottom: "15px",
+          paddingTop: "15px",
+        }}
       >
         <Link to="/" className="col-12 col-md-4">
           <img src={song.image} alt={song.name} height="200px" width="100%" />
@@ -43,6 +47,7 @@ function SongInfo({ pauseit, myaudio }) {
         <div className="container text-center">
           <br />
           {songCard}
+          <br />
         </div>
       </div>
     </>
