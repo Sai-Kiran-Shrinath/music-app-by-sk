@@ -6,14 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Route, Redirect, Switch } from "react-router";
 import { Songs } from "./songsinfo";
 import { Spinner } from "reactstrap";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-} from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
 function App() {
@@ -61,7 +54,7 @@ function App() {
         <Navbar className="navbar" dark expand="md">
           <div className="container">
             <NavLink to="/" className="navlink">
-              <NavbarBrand className="mr-auto">
+              <span className="mr-auto">
                 <img
                   src="/favicon.jpg"
                   height="40px"
@@ -69,7 +62,7 @@ function App() {
                   alt="logo"
                 ></img>
                 <span className="navbar-brand">SK's Music App</span>
-              </NavbarBrand>
+              </span>
             </NavLink>
             <NavbarToggler onClick={toggleNav} className="mr-2" />
             <Collapse isOpen={!collapsed} navbar>
@@ -143,7 +136,7 @@ function App() {
         </Switch>
       </BrowserRouter>
 
-      <div
+      <footer
         className="footer text-center foot"
         style={{ paddingBottom: "20px" }}
       >
@@ -163,7 +156,7 @@ function App() {
             }}
           />
         </a>
-      </div>
+      </footer>
       <br />
       <br />
       <footer className="audio-player">

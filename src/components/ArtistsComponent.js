@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Card, CardImg, CardTitle } from "reactstrap";
 import { artists } from "../artists";
 
-function Artist({ pauseit, myaudio }) {
+function Artist({ myaudio, pauseit }) {
   useEffect(() => {
     if (myaudio.paused) {
       pauseit(true);

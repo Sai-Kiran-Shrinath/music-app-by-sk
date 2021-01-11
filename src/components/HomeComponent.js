@@ -98,12 +98,11 @@ function Home({ myaudio, index, setIndex, changeflag, pauseit }) {
             <input
               type="range"
               min={0}
-              max={myaudio.duration}
+              max={isNaN(myaudio.duration) ? 1000 : myaudio.duration}
               step="any"
               value={playtime}
               onInput={(e) => {
-                setPlaytime(e.target.value);
-                myaudio.currentTime = playtime;
+                myaudio.currentTime = e.target.value;
               }}
               style={{ width: "60%" }}
             />
@@ -227,9 +226,13 @@ function Home({ myaudio, index, setIndex, changeflag, pauseit }) {
     );
   };
 
-  const allsongs = Songs.map((song) => {
+  const allsongs = Songs.map((song, id) => {
     return (
-      <div className="col-12 cold-md playlist" style={{ cursor: "pointer" }}>
+      <div
+        key={id}
+        className="col-12 cold-md playlist"
+        style={{ cursor: "pointer" }}
+      >
         <div className="row">
           <img
             src={song.image}

@@ -14,29 +14,27 @@ function SongInfo({ pauseit, myaudio }) {
 
   const songCard = Songs.map((song) => {
     return (
-      <>
-        <div
-          key={song.id}
-          id={song.id}
-          className="row text-center"
-          style={{ borderBottom: "3px solid #070047", paddingBottom: "15px" }}
-        >
-          <Link to="/" className="col-12 col-md-4">
-            <img src={song.image} alt={song.name} height="200px" width="100%" />
-          </Link>
-          <div className="col-12 col-md-8">
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <h5 style={{ color: "rgb(92, 1, 8)" }}>{song.name}</h5>
+      <div
+        key={song.id}
+        id={song.id}
+        className="row text-center"
+        style={{ borderBottom: "3px solid #070047", paddingBottom: "15px" }}
+      >
+        <Link to={`/#${song.id}`} className="col-12 col-md-4">
+          <img src={song.image} alt={song.name} height="200px" width="100%" />
+        </Link>
+        <div className="col-12 col-md-8">
+          <Link to={`/#${song.id}`} style={{ textDecoration: "none" }}>
+            <h5 style={{ color: "rgb(92, 1, 8)" }}>{song.name}</h5>
 
-              <p style={{ color: "black" }}>By {song.artist}</p>
-              <p style={{ color: "black" }}>Released in {song.released}</p>
-              <p style={{ color: "black" }}>Genre: {song.genre}</p>
-              <p style={{ color: "black" }}>Lyricists: {song.lyricist}</p>
-            </Link>
-          </div>
+            <p style={{ color: "black" }}>By {song.artist}</p>
+            <p style={{ color: "black" }}>Released in {song.released}</p>
+            <p style={{ color: "black" }}>Genre: {song.genre}</p>
+            <p style={{ color: "black" }}>Lyricists: {song.lyricist}</p>
+          </Link>
         </div>
         <br />
-      </>
+      </div>
     );
   });
   return (
