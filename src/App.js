@@ -138,7 +138,7 @@ function App() {
 
       <footer
         className="footer text-center foot"
-        style={{ paddingBottom: "20px" }}
+        style={{ paddingBottom: "80px" }}
       >
         <a
           href="https://www.linkedin.com/in/sai-kiran-shrinath-2048a0187/"
@@ -157,8 +157,6 @@ function App() {
           />
         </a>
       </footer>
-      <br />
-      <br />
       <footer className="audio-player">
         <div className="container text-center">
           <div className="row">
